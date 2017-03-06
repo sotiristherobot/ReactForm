@@ -1,15 +1,13 @@
 import React from 'react';
 import Hello from './hello.js';
+import Form from './Form';
 
 let App = React.createClass({
   render(){
     return (
-      <Hello />
+        <Form />
     );
   }
 });
 
-React.render(
-  <App />,
-  document.body
-  )
+React.render(<App />,document.body)
