@@ -1,5 +1,4 @@
 import React from 'react';
-import Hello from './hello.js';
 import Form from './Form';
 
 let App = React.createClass({
