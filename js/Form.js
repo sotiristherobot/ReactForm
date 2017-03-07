@@ -13,7 +13,6 @@ class Form extends React.Component {
             username: this.username.getDOMNode().value,
             password: this.password.getDOMNode().value
         }
-
         const params = 'email=' + loginInfo.username + '&password=' + loginInfo.password;
 
         const makeRequest = function(method, url, params, token) {
@@ -58,7 +57,7 @@ class Form extends React.Component {
             <form ref={(input) => {this.sForm = input;}} onSubmit={this.formSubmited}>
                 <input ref={(input) => {this.username = input;}} type='text' placeholder='Username'/>
                 <input ref={(input) => {this.password = input;}} type='password' placeholder='Password'/>
-                <button type='submit'>Submit</button>
+                <button id='submitBtn' type='submit'>Submit</button>
             </form>
         )
     }
