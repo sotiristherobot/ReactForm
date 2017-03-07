@@ -16,11 +16,17 @@ class Form extends React.Component {
 
         const params = 'email=' + loginInfo.username + '&password=' + loginInfo.password;
 
-        const makeRequest = function(method, url, params) {
+        const makeRequest = function(method, url, params, token) {
             return new Promise((resolve, reject) => {
                 const request = new XMLHttpRequest();
                 request.open(method, url, true);
-                request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+                if (token) {
+                    request.setRequestHeader('Authorization', 'JWT ' + token);
+                }
+                else {
+                    request.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+                }
 
                 request.onload = () => {
                     if (request.status == 200) {
@@ -35,9 +41,13 @@ class Form extends React.Component {
         }
         /* let params = 'email=challenge@i2x.ai&password=pass123';*/
 
-        makeRequest('POST', 'https://i2x-challenge.herokuapp.com/core/login/ ', params )
-            .then((val)=> {
-                console.log(val);
+        makeRequest('POST', 'https://i2x-challenge.herokuapp.com/core/login/ ', params, null)
+            .then((token) => {
+                token = JSON.parse(token).token;
+                makeRequest('GET', 'https://i2x-challenge.herokuapp.com/ai/recording/list/', null, token)
+                    .then((response) => {
+                       console.log(response); 
+                    });
             });
 
         console.log(loginInfo);
