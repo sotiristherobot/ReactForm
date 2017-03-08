@@ -53,7 +53,7 @@ class Form extends React.Component {
         this.sForm.getDOMNode().reset(0); //reset form
         }
     render() {
-        return(
+        return (
             <form ref={(input) => {this.sForm = input;}} onSubmit={this.formSubmited}>
                 <input ref={(input) => {this.username = input;}} type='text' placeholder='Username'/>
                 <input ref={(input) => {this.password = input;}} type='password' placeholder='Password'/>

@@ -1,7 +1,9 @@
 import React from 'react';
-import Form from './Form';
-import NotFound from './NotFound.js';
 import {render} from 'react-dom'; 
+
+
+import Form from './Form';
+import NotFound from './NotFound';
 
 import {BrowserRouter, Match, Miss} from 'react-router';
 
