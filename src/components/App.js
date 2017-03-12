@@ -13,10 +13,7 @@ class App extends React.Component {
     addResponseToState(obj) {
         let result = this.state.jsonResponseObject;
         result = obj;
-
         this.setState({jsonResponseObject : result});
-
-        console.log(this.state);
     }
     render() {
         return(
