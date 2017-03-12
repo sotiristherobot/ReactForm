@@ -44,7 +44,9 @@ class Form extends React.Component {
                         const test = JSON.parse(response);
                         console.log(test);
                         test.results.forEach((item, index)=> {
-                            document.getElementById('response').append(item);
+                            /* document.getElementById('response').append(item);*/
+
+                            this.props.addResponseToState(item);
                         })
                     });
             }, () => {
