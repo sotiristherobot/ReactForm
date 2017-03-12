@@ -5,13 +5,18 @@ import Form from './Form';
 class App extends React.Component {
     constructor() {
         super();
+        this.addResponseToState = this.addResponseToState.bind(this);
         this.state = {
-          jsonResponse : {}  
+          jsonResponseObject : {}  
         };
     }
     addResponseToState(obj) {
-        /* const result = {this.state.jsonResponse};*/
-        console.log('Add response from app');
+        let result = this.state.jsonResponseObject;
+        result = obj;
+
+        this.setState({jsonResponseObject : result});
+
+        console.log(this.state);
     }
     render() {
         return(

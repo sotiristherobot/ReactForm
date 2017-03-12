@@ -41,13 +41,8 @@ class Form extends React.Component {
                 token = JSON.parse(token).token;
                 makeRequest('GET', 'https://i2x-challenge.herokuapp.com/ai/recording/list/', null, token)
                     .then((response) => {
-                        const test = JSON.parse(response);
-                        console.log(test);
-                        test.results.forEach((item, index)=> {
-                            /* document.getElementById('response').append(item);*/
-
-                            this.props.addResponseToState(item);
-                        })
+                        const parseResponse = JSON.parse(response);
+                        this.props.addResponseToState(parseResponse);
                     });
             }, () => {
                 alert('error');
