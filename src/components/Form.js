@@ -26,12 +26,11 @@ class Form extends React.Component {
                     request.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
                 }
                 request.onload = () => {
-                    if (request.status == 200) {
+                    if (request.status === 200) {
                         resolve(request.response);
                     }
                     else {
                         reject(Error(request.statusText));
-
                     }
                 }
                 request.send(params);
@@ -39,16 +38,20 @@ class Form extends React.Component {
         }
         makeRequest('POST', 'https://i2x-challenge.herokuapp.com/core/login/ ', params, null)
             .then((token) => {
-                console.log(token);
                 token = JSON.parse(token).token;
                 makeRequest('GET', 'https://i2x-challenge.herokuapp.com/ai/recording/list/', null, token)
                     .then((response) => {
-                        console.log(response); 
+                        const test = JSON.parse(response);
+                        console.log(test);
+                        test.results.forEach((item, index)=> {
+                            document.getElementById('response').append(item);
+                        })
                     });
+            }, () => {
+                alert('error');
             });
         this.sForm.reset(0); //reset form
     }
-
     render() {
         return (
             <form ref={(input) => this.sForm = input} onSubmit={this.formSubmited}>

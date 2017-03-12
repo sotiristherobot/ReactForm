@@ -2,8 +2,8 @@ import React from 'react';
 import {render} from 'react-dom'; 
 
 import './css/style.css';
-import Form from './components/Form';
 import NotFound from './components/NotFound';
+import App from './components/App';
 
 import {BrowserRouter, Match, Miss} from 'react-router';
 
@@ -11,7 +11,7 @@ const Root = () => {
     return (
         <BrowserRouter>
             <div>
-                <Match exactly pattern='/' component={Form}/>
+                <Match exactly pattern='/' component={App}/>
                 <Miss component={NotFound}/>
             </div>
         </BrowserRouter>
