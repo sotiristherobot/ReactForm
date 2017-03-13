@@ -4,6 +4,8 @@ import {render} from 'react-dom';
 import './css/style.css';
 import NotFound from './components/NotFound';
 import App from './components/App';
+import LoggedIn from './components/LoggedIn';
+
 
 import {BrowserRouter, Match, Miss} from 'react-router';
 
@@ -12,6 +14,7 @@ const Root = () => {
         <BrowserRouter>
             <div>
                 <Match exactly pattern='/' component={App}/>
+                <Match exactly pattern='/loggedin' component={LoggedIn}/>
                 <Miss component={NotFound}/>
             </div>
         </BrowserRouter>
