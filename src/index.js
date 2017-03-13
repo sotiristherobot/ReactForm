@@ -9,15 +9,31 @@ import LoggedIn from './components/LoggedIn';
 
 import {BrowserRouter, Match, Miss} from 'react-router';
 
+
+const PrivateRoute = (component) => {
+    const isAuthenticated = false;
+
+    if (isAuthenticated){
+
+        return React.createElement(LoggedIn);
+    }
+    else {
+        return null;
+    }
+}
+
 const Root = () => {
     return (
+
         <BrowserRouter>
             <div>
                 <Match exactly pattern='/' component={App}/>
-                <Match exactly pattern='/loggedin' component={LoggedIn}/>
+                <PrivateRoute path='/loggedin'/>
                 <Miss component={NotFound}/>
             </div>
         </BrowserRouter>
     )
 }
 render(<Root/>, document.querySelector('#react'));
+
+
