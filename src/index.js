@@ -8,22 +8,16 @@ import LoggedIn from './components/LoggedIn';
 
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 
-const PrivateRoute = (component) => {
-    const isAuthenticated = false;
-    if (isAuthenticated) {
-        return React.createElement(LoggedIn);
-    }
-    else {
-        return null;
-    }
-}
-
 const Root = () => {
     return (
         <Router>
             <div>
                 <Route exact={true} path='/' component={App}/>
-                <PrivateRoute exact={true} path='/loggedin' component={LoggedIn}/>
+                <Route exact={true} path='/loggedin' render={ () => {
+
+                        return React.createElement(LoggedIn);
+                        console.log('rendering');
+                }}/>
             </div>
         </Router>
     )
