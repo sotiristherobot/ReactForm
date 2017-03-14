@@ -24,7 +24,7 @@ const Root = () => {
         <Router>
             <div>
                 <Route exact={true} pattern='/' component={App}/>
-                <PrivateRoute path='/loggedin' component={LoggedIn}/>
+                <PrivateRoute exact={true} path='/loggedin' component={LoggedIn}/>
             </div>
         </Router>
     )
