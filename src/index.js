@@ -6,15 +6,12 @@ import NotFound from './components/NotFound';
 import App from './components/App';
 import LoggedIn from './components/LoggedIn';
 
-
-import {BrowserRouter, Match, Miss} from 'react-router';
-
+import {BrowserRouter as Router, Route} from 'react-router-dom';
 
 const PrivateRoute = (component) => {
     const isAuthenticated = false;
 
-    if (isAuthenticated){
-
+    if (isAuthenticated) {
         return React.createElement(LoggedIn);
     }
     else {
@@ -24,16 +21,13 @@ const PrivateRoute = (component) => {
 
 const Root = () => {
     return (
-
-        <BrowserRouter>
+        <Router>
             <div>
-                <Match exactly pattern='/' component={App}/>
-                <PrivateRoute path='/loggedin'/>
-                <Miss component={NotFound}/>
+                <Route exact={true} pattern='/' component={App}/>
+                <PrivateRoute path='/loggedin' component={LoggedIn}/>
             </div>
-        </BrowserRouter>
+        </Router>
     )
 }
 render(<Root/>, document.querySelector('#react'));
-
 
