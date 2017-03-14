@@ -14,10 +14,14 @@ const Root = () => {
             <div>
                 <Route exact={true} path='/' component={App}/>
                 <Route exact={true} path='/loggedin' render={ () => {
-
-                        return React.createElement(LoggedIn);
-                        console.log('rendering');
-                }}/>
+                        const authorized = false;
+                        if (authorized) {
+                            return React.createElement(LoggedIn);
+                        }
+                        else {
+                            return null;
+                        }
+                        }}/>
             </div>
         </Router>
     )
