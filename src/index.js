@@ -10,7 +10,6 @@ import {BrowserRouter as Router, Route} from 'react-router-dom';
 
 const PrivateRoute = (component) => {
     const isAuthenticated = false;
-
     if (isAuthenticated) {
         return React.createElement(LoggedIn);
     }
@@ -23,7 +22,7 @@ const Root = () => {
     return (
         <Router>
             <div>
-                <Route exact={true} pattern='/' component={App}/>
+                <Route exact={true} path='/' component={App}/>
                 <PrivateRoute exact={true} path='/loggedin' component={LoggedIn}/>
             </div>
         </Router>

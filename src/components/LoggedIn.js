@@ -2,7 +2,7 @@ import React from 'react';
 
 class LoggedIn extends React.Component {
     render() {
-        return(
+        return (
             <h1> Logged In </h1>
         )
     }
