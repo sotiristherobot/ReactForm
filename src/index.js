@@ -14,7 +14,7 @@ const Root = () => {
             <div>
                 <Route exact={true} path='/' component={App}/>
                 <Route exact={true} path='/loggedin' render={ () => {
-                        const authorized = false;
+                        const authorized = true;
                         if (authorized) {
                             return React.createElement(LoggedIn);
                         }

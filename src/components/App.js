@@ -1,8 +1,7 @@
 import React from 'react';
 
 import Form from './Form';
-
-import {BrowserRouter as Router, Route} from 'react-router-dom';
+import LoggedIn from './LoggedIn.js';
 
 class App extends React.Component {
     constructor() {
@@ -16,6 +15,7 @@ class App extends React.Component {
         let result = this.state.jsonResponseObject;
         result = obj;
         this.setState({jsonResponseObject : result});
+        this.props.history.push('/loggedin');
     }
     render() {
         return(
