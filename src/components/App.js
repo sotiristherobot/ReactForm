@@ -20,7 +20,7 @@ class App extends React.Component {
     }
     render() {
         if (this.state.jsonResponseObject.results) {
-             return <LoggedIn />;
+             return <LoggedIn  results={this.state.jsonResponseObject}/>;
         }
         return(
             <Form addResponseToState={this.addResponseToState}/>
