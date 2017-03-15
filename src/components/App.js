@@ -14,12 +14,15 @@ class App extends React.Component {
     addResponseToState(obj) {
         let result = this.state.jsonResponseObject;
         result = obj;
-        this.setState({jsonResponseObject : result});
+        this.setState({
+            jsonResponseObject : result,
+            authorizedUser : true
+        });
 
         /* this.props.history.push('/loggedin');*/
     }
     render() {
-        if (this.state.jsonResponseObject.results) {
+        if (this.state.jsonResponseObject.results && this.state.authorizedUser) {
              return <LoggedIn  results={this.state.jsonResponseObject}/>;
         }
         return(

@@ -13,15 +13,6 @@ const Root = () => {
         <Router>
             <div>
                 <Route exact={true} path='/' component={App}/>
-                <Route exact={true} path='/loggedin' render={ () => {
-                        const authorized = true;
-                        if (authorized) {
-                            return React.createElement(LoggedIn);
-                        }
-                        else {
-                            return null;
-                        }
-                        }}/>
             </div>
         </Router>
     )
