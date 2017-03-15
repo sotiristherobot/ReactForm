@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Form from './Form';
-import LoggedIn from './LoggedIn.js';
+import LoggedIn from './LoggedIn';
 
 class App extends React.Component {
     constructor() {
@@ -15,9 +15,13 @@ class App extends React.Component {
         let result = this.state.jsonResponseObject;
         result = obj;
         this.setState({jsonResponseObject : result});
-        this.props.history.push('/loggedin');
+
+        /* this.props.history.push('/loggedin');*/
     }
     render() {
+        if (this.state.jsonResponseObject.results) {
+             return <LoggedIn />;
+        }
         return(
             <Form addResponseToState={this.addResponseToState}/>
         )
