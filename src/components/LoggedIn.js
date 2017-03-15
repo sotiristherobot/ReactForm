@@ -6,6 +6,12 @@ class LoggedIn extends React.Component {
         console.log(this.props);
     }
     render() {
+        if (!this.props.results) {
+            return (
+
+                <h3> Logged in but there is no data </h3>
+            )
+        }
         return (
             <div>
                 <h1>Logged In </h1>

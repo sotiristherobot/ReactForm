@@ -18,7 +18,6 @@ class App extends React.Component {
             jsonResponseObject : result,
             authorizedUser : true
         });
-
         /* this.props.history.push('/loggedin');*/
     }
     render() {
