@@ -6,7 +6,7 @@ import NotFound from './components/NotFound';
 import App from './components/App';
 import LoggedIn from './components/LoggedIn';
 
-import {BrowserRouter as Router, Route} from 'react-router-dom';
+import {BrowserRouter as Router, Route, browserHistory} from 'react-router-dom';
 
 
 class Root extends React.Component {
