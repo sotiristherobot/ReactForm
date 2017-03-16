@@ -3,10 +3,11 @@ import React from 'react';
 class LoggedIn extends React.Component {
     constructor(props) {
         super(props);
-        console.log(this.props);
+
+        /* console.log(this.location.state.results);*/
     }
     render() {
-        if (!this.props.results) {
+        if (!this.props.location.state.results) {
             return (
 
                 <h3> Logged in but there is no data </h3>
@@ -15,7 +16,7 @@ class LoggedIn extends React.Component {
         return (
             <div>
                 <h1>Logged In </h1>
-                <li> {this.props.results.results[0].final_script}</li>
+                <li> {this.props.location.state.results[0].final_script}</li>
             </div>
         )
     }

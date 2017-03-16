@@ -8,23 +8,45 @@ import LoggedIn from './components/LoggedIn';
 
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 
-const Root = () => {
-    return (
-        <Router>
-            <div>
-                <Route exact={true} path='/' component={App}/>
-                <Route exact={true} path='/loggedin' render={ () => {
-                        const authorized = false;
-                        if (authorized) {
-                            return React.createElement(LoggedIn);
-                        }
-                        else {
-                            return <NotFound/>;
-                        }
-                        }}/>
-            </div>
-        </Router>
-    )
+
+class Root extends React.Component {
+
+    render() {
+        return (
+
+            <Router>
+                <div>
+                    <Route exact={true} path='/' component={App}/>
+                    <Route path='/loggedin' component={LoggedIn}/>
+                </div>
+
+            </Router>
+
+
+        )
+    }
 }
 render(<Root/>, document.querySelector('#react'));
-
+/* const Root = () => {
+ *     return (
+ *         <Router>
+ *             <div>
+ *                 <Route exact={true} path='/' component={(props) =>{
+ *                      return   <App kokos={props}/>
+ *                     }}/>
+ *                 <Route exact={true} path='/loggedin' render={ (props) => {
+ *                         const authorized = true;
+ *                         if (authorized) {
+ *                             console.log(props);
+ *                             return React.createElement(LoggedIn, props);
+ *                         }
+ *                         else {
+ *                             return <NotFound/>;
+ *                         }
+ *                         }}/>
+ *             </div>
+ *         </Router>
+ *     )
+ * }
+ * render(<Root/>, document.querySelector('#react'));
+ * */
